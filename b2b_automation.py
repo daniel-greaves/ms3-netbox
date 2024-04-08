@@ -11,7 +11,7 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('Customer information', ('wholesale_provider')),
+            ('Customer information', ('wholesale_provider','site_temp')),
             ('Site information', ('site_name', 'site_address')),
             #('Service Information', ('service_profile'))
         )
@@ -29,3 +29,4 @@ class NewBranchScript(Script):
     site_address = TextVar(
         description = "Name of the old location"
     )
+    site_temp = StringVar()
