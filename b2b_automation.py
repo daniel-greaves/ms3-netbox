@@ -60,14 +60,3 @@ class NewBranchScript(Script):
             device_model = 'fsp-150-xg108'
         else:
             device_model = None
-
-        if device_model:
-            nte = Device(
-                device_type = device_model
-                name = f'{site.slug.upper()}-NTE-1',
-                site=site,
-                status=DeviceStatusChoices.STATUS_PLANNED,
-                device_role='nte'
-            )
-            nte.save()
-            self.log_success(f"Created new NTE: {nte}")
