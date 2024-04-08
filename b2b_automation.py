@@ -41,3 +41,14 @@ class NewBranchScript(Script):
         choices=CHOICES
     )
 
+
+    def run(self, data, commt):
+        # Create the new site
+        site = Site(
+            name=data['site_name'],
+            slug=slugify(data['site_name']),
+            status=SiteStatusChoices.STATUS_PLANNED
+        )
+        site.full_clean()
+        site.save()
+        self.log_success(f"Created new site: {site}")
