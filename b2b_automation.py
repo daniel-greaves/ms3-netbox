@@ -13,7 +13,7 @@ class NewBranchScript(Script):
         fieldsets = (
             ('Customer information', ('wholesale_provider', 'site_temp')),
             ('Site information', ('site_name', 'site_address')),
-            ('Service Information', ('service_profile', 'site_temp1'))
+            #('Service Information', ('service_profile', 'site_temp1'))
         )
     
     wholesale_provider = ObjectVar(
