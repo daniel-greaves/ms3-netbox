@@ -48,7 +48,7 @@ class NewBranchScript(Script):
             name=data['site_name'],
             slug=slugify(data['site_name']),
             status=SiteStatusChoices.STATUS_PLANNED,
-            #physical_address = data['site_address']
+            physical_address = data['site_address']
         )
         site.full_clean()
         site.save()
