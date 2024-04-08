@@ -9,7 +9,7 @@ class NewBranchScript(Script):
     class Meta:
         name = "New B2B Order"
         description = "Provision a new business connection"
-    fieldsets  = (
+    fieldsets = (
         (('Site Information'), ('site_name', 'switch_count'))
     )
     site_name = StringVar(
