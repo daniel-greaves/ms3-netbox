@@ -42,7 +42,7 @@ class NewBranchScript(Script):
     )
 
 
-    def run(self, data, commt):
+    def run(self, data, commit):
         # Create the new site
         site = Site(
             name=data['site_name'],
