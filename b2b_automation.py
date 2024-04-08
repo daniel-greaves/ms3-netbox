@@ -23,6 +23,9 @@ class NewBranchScript(Script):
     site_name1 = StringVar(
         description="Name of the new site"
     )
-    location_name1 = StringVar(
-        description="Name of the new location"
-    )
+    location_name1 = ObjectVar(
+        description="Access switch model",
+        model=DeviceType,
+        query_params={
+            'manufacturer': 'adva'
+        }
