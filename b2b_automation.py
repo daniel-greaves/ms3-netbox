@@ -56,16 +56,16 @@ class NewBranchScript(Script):
 
         # Create the NTE
         if data['service_profile'] == '1g_eth':
-            device_model = 'fsp-150-ge104e'
+            device_model = 'FSP 150-GE104(E)'
         elif data['service_profile'] == '10g_eth':
-            device_model = 'fsp-150-xg108'
+            device_model = 'FSP 150-XG108'
         else:
             device_model = None
 
         nte_role = DeviceRole.objects.get(name='NTE')
         
         if device_model:
-            device_type = Device.objects.get(slug = device_model)
+            device_type = Device.objects.get(name = device_model)
             nte = Device(
                 device_type = device_type
                 name = f'{site.slug.upper()}-NTE-1',
