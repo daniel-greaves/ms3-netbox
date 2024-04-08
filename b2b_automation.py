@@ -10,11 +10,11 @@ class NewBranchScript(Script):
     class Meta:
         name = "New B2B Order"
         description = "Provision a new business connection"
-        fieldsets = (
-            ('Customer Information', ('wholesale_provider')),
-            ('Site Information', ('site_name', 'site_address')),
-            # ('Service Information', ('service_profile'))
-        )
+        #fieldsets = (
+            #('Customer Information', ('wholesale_provider')),
+            #('Site Information', ('site_name', 'site_address')),
+            #('Service Information', ('service_profile'))
+        #)
     
     wholesale_provider = ObjectVar(
         description = "The name of the reseller ordering this service",
@@ -28,4 +28,12 @@ class NewBranchScript(Script):
     )
     site_address = TextVar(
         description = "Name of the old location"
+    )
+    service_profile = ChoiceVar(
+        choices = (
+            ('1g_eth', '1G Ethernet Layer 2'),
+            ('10g_eth', '10G Ethernet Layer 2'),
+            ('1g_fttp', '1G FTTP')
+        )
+        description = "Type of service being provided"
     )
