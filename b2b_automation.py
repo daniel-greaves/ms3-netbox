@@ -10,12 +10,6 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
 
-    fieldsets  = (
-        ('Business Information', ('site_name', 'switch_count')),
-        ('Connection Information', ('siwtch_count', 'switch_model')),
-        ('Service Information', ('ap_count', 'ap_model', 'ip_address')),
-    )
-
     site_name = StringVar(
         description="Name of the new site"
     )
@@ -24,13 +18,7 @@ class NewBranchScript(Script):
     )
     switch_model = ObjectVar(
         description="Access switch model",
-        model=DeviceType,
-        query_params={
-            'manufacturer': 'ADVA'
-        }
-    )
-    ip_address = IPAddressWithMaskVar(
-        description="IP Address of ADVA"
+        model=DeviceType
     )
     router_count = IntegerVar(
         description="Number of routers to create"
