@@ -20,9 +20,6 @@ class NewBranchScript(Script):
     location_name = StringVar(
         description="Name of the old location"
     )
-    site_name1 = StringVar(
-        description="Name of the new site"
-    )
     location_name1 = StringVar(
         description="Name of the new location"
     )
