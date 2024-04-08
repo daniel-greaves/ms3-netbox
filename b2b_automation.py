@@ -52,3 +52,22 @@ class NewBranchScript(Script):
         site.full_clean()
         site.save()
         self.log_success(f"Created new site: {site}")
+
+        # Create the NTE
+        if data['service_profile'] == '1g_eth':
+            device_model = 'fsp-150-ge104e'
+        elif data['service_profile'] == '10g_eth':
+            device_model = 'fsp-150-xg108'
+        else:
+            device_model = None
+
+        if device_model:
+            nte = Device(
+                device_type = device_model
+                name = f'{site.slug.upper()}-NTE-1',
+                site=site,
+                status=DeviceStatusChoices.STATUS_PLANNED,
+                device_role='nte'
+            )
+            nte.save()
+            self.log_success(f"Created new NTE: {nte}")
