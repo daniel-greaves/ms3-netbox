@@ -29,7 +29,7 @@ class NewBranchScript(Script):
     site_address = TextVar(
         description = "Name of the old location"
     )
-    service_profile = StringVar(
+    service_profile = ChoiceVar(
         choices = (
             ('1g_eth', '1G Ethernet Layer 2'),
             ('10g_eth', '10G Ethernet Layer 2'),
