@@ -12,7 +12,7 @@ class NewBranchScript(Script):
         description = "Provision a new business connection"
         fieldsets = (
             ('First group', ('site_name', 'site_name1')),
-            ('Second group', ('location_name', 'location_name1')),
+            ('Second group', ('location_name', 'wholesale_provider')),
         )
     
     site_name = StringVar(
@@ -24,8 +24,7 @@ class NewBranchScript(Script):
     site_name1 = StringVar(
         description="Name of the new site"
     )
-    location_name1 = ObjectVar(
-        name="Wholesale Provider",
+    wholesale_provider = ObjectVar(
         description="The name of the reseller ordering this service",
         model=Tenant,
         query_params={
