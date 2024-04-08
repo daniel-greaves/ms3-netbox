@@ -34,7 +34,7 @@ class NewBranchScript(Script):
         description="AP model",
         model=DeviceType,
         query_params={
-            'manufacturer': 'ADVA'
+            'manufacturer': 'adva'
         }
     )
     server_count = IntegerVar(
