@@ -61,7 +61,7 @@ class NewBranchScript(Script):
         else:
             device_model = None
 
-        nte_role = DeviceRole.objects.get(name='NTE')
+        nte_role = DeviceRole.objects.get(slug='nte')
         
         if device_model:
             device_type = DeviceType.objects.get(model = device_model)
