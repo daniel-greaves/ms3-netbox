@@ -29,3 +29,4 @@ class NewBranchScript(Script):
         query_params={
             'manufacturer': 'ADVA'
         }
+    )
