@@ -25,7 +25,8 @@ class NewBranchScript(Script):
         description="Name of the new site"
     )
     location_name1 = ObjectVar(
-        description="Access switch model",
+        name="Wholesale Provider",
+        description="The name of the reseller ordering this service",
         model=Tenant,
         query_params={
             'group': 'wholesale-providers'
