@@ -73,5 +73,6 @@ class NewBranchScript(Script):
                 status = DeviceStatusChoices.STATUS_PLANNED,
                 device_role = nte_role
             )
+            nte.full_clean()
             nte.save()
             self.log_success(f"Created new NTE: {nte}")
