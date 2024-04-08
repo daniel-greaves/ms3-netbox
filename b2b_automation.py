@@ -24,9 +24,9 @@ class NewBranchScript(Script):
         description="Name of the new location"
     )
     wholesale_partner = ObjectVar(
-        description="Wholesale Partner",
-        model=Tenancy,
+        description="Access switch model",
+        model=DeviceType,
         query_params={
-            'group': 'wholesale-providers'
+            'manufacturer': 'ADVA'
         }
     )
