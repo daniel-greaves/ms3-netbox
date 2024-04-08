@@ -39,5 +39,4 @@ class NewBranchScript(Script):
     )
     service_profile = ChoiceVar(
         choices=CHOICES
-        description = "Type of service being provided"
     )
