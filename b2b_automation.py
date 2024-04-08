@@ -27,5 +27,5 @@ class NewBranchScript(Script):
         description="Access switch model",
         model=DeviceType,
         query_params={
-            'manufacturer': 'adva'
+            'manufacturer': 'ADVA'
         }
