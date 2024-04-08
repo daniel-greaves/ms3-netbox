@@ -37,6 +37,9 @@ class NewBranchScript(Script):
             'manufacturer': 'adva'
         }
     )
+    ip_address = IPAddressWithMaskVar(
+        description="IP Address of ADVA"
+    )
     server_count = IntegerVar(
         description="Number of servers to create"
     )
