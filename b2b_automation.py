@@ -2,7 +2,7 @@ from extras.scripts import *
 from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site
+from dcim.models import Device, DeviceRole, DeviceType, Manufacturer, Site
 from tenancy.models import Tenant
 
 class NewBranchScript(Script):
@@ -39,6 +39,11 @@ class NewBranchScript(Script):
     )
     service_profile = ChoiceVar(
         choices=CHOICES
+    )
+
+    manufacturer = ObjectVar(
+        model=Manufacturer,
+        required=False
     )
 
 
