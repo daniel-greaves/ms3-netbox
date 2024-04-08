@@ -11,8 +11,8 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('Customer Information', ('wholesale_provider')),
-            ('Site Information', ('site_name', 'site_address')),
+            ('Customer information', ('wholesale_provider')),
+            ('Site information', ('site_name', 'site_address')),
             #('Service Information', ('service_profile'))
         )
     
