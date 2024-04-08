@@ -74,4 +74,4 @@ class NewBranchScript(Script):
                 device_role = nte_role
             )
             nte.save()
-            self.log_success(f"Created new NTE: {device_type}")
+            self.log_success(f"Created new NTE: {nte}")
