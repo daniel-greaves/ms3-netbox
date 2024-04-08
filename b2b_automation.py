@@ -1,4 +1,4 @@
-from extras.scripts import *
+cesfrom extras.scripts import *
 from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
@@ -25,7 +25,7 @@ class NewBranchScript(Script):
     )
     wholesale_partner = ObjectVar(
         description="Access switch model",
-        model=Tenants,
+        model=DeviceType,
         query_params={
             'group': 'wholesale-partner'
         }
