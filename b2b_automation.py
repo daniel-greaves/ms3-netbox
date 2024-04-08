@@ -16,9 +16,12 @@ class NewBranchScript(Script):
             #('Service Information', ('service_profile'))
         #)
     
-
-    site_name = StringVar(
-        description = "Name of the site or business"
+    wholesale_provider = ObjectVar(
+        description = "The name of the reseller ordering this service",
+        model = Tenant,
+        query_params = {
+            'group': 'wholesale-providers'
+        }
     )
     site_address = TextVar(
         description = "Name of the old location"
