@@ -1,4 +1,4 @@
-cesfrom extras.scripts import *
+from extras.scripts import *
 from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
@@ -20,10 +20,9 @@ class NewBranchScript(Script):
     location_name = StringVar(
         description="Name of the old location"
     )
+    site_name1 = StringVar(
+        description="Name of the new site"
+    )
     location_name1 = StringVar(
         description="Name of the new location"
     )
-    site_name1 = StringVar(
-        description="Name of the new location"
-    )
-    
