@@ -23,11 +23,7 @@ class NewBranchScript(Script):
     location_name1 = StringVar(
         description="Name of the new location"
     )
-    wholesale_partner = ObjectVar(
-        description="Access switch model",
-        model=DeviceType,
-        query_params={
-            'manufacturer': 'ADVA'
-        }
+    wholesale_partner = StringVar(
+        description="Name of the new location"
     )
     
