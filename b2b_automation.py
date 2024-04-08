@@ -3,6 +3,7 @@ from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
+from tenancy.models import Tenant
 
 class NewBranchScript(Script):
 
@@ -25,8 +26,8 @@ class NewBranchScript(Script):
     )
     location_name1 = ObjectVar(
         description="Access switch model",
-        model=DeviceType,
+        model=Tenant,
         query_params={
-            'manufacturer': 'adva'
+            'group': 'wholesale-partner'
         }
     )
