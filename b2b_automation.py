@@ -23,17 +23,21 @@ class NewBranchScript(Script):
             'group': 'wholesale-providers'
         }
     )
+    
     site_name = StringVar(
         description = "Name of the site or business"
     )
+    
     site_address = TextVar(
         description = "Name of the old location"
     )
+    
     CHOICES = (
-        ('n', 'North'),
-        ('s', 'South'),
-        ('e', 'East'),
-        ('w', 'West')
+        ('1g_eth', '1G Ethernet Layer 2'),
+        ('10g_eth', '10G Ethernet Layer 2'),
+        ('1g_fttp', '1G FTTP'),
     )
-
-    service_profile = ChoiceVar(choices=CHOICES)
+    service_profile = ChoiceVar(
+        choices=CHOICES
+        description = "Type of service being provided"
+    )
