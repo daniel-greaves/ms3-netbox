@@ -30,3 +30,4 @@ class NewBranchScript(Script):
             'manufacturer': 'adva'
         }
     )
+    
