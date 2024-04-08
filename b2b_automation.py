@@ -25,7 +25,7 @@ class NewBranchScript(Script):
     )
     wholesale_partner = ObjectVar(
         description="Access switch model",
-        model=Tenant,
+        model=Tenancy,
         query_params={
             'group': 'wholesale-partner'
         }
