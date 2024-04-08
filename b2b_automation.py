@@ -11,7 +11,7 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('Customer information', ('wholesale_provider', 'site_temp')),
+            ('Customer information', ('wholesale_provider', 'service_profile')),
             ('Site information', ('site_name', 'site_address')),
             #('Service Information', ('service_profile', 'site_temp1'))
         )
@@ -29,4 +29,11 @@ class NewBranchScript(Script):
     site_address = TextVar(
         description = "Name of the old location"
     )
-    site_temp = StringVar()
+    service_profile = ChoiceVar(
+        choices = (
+            ('1g_eth', '1G Ethernet Layer 2'),
+            ('10g_eth', '10G Ethernet Layer 2'),
+            ('1g_fttp', '1G FTTP')
+        )
+        description = "Type of service being provided"
+    )
