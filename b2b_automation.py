@@ -32,7 +32,10 @@ class NewBranchScript(Script):
     )
     ap_model = ObjectVar(
         description="AP model",
-        model=DeviceType
+        model=DeviceType,
+        query_params={
+            'manufacturer': 'ADVA'
+        }
     )
     server_count = IntegerVar(
         description="Number of servers to create"
