@@ -40,3 +40,33 @@ class NewBranchScript(Script):
     service_profile = ChoiceVar(
         choices=CHOICES
     )
+
+    def run(self, data, commt):
+        # Create the new site
+        site = Site(
+            name=data['site_name'],
+            slug=slugify(data['site_name']),
+            status=SiteStatusChoices.STATUS_PLANNED
+        )
+        site.full_clean()
+        site.save()
+        self.log_success(f"Created new site: {site}")
+
+        # Create the NTE
+        if data['service_profile'] == '1g_eth':
+            device_type = 'fsp-150-ge104e'
+        elif data['service_profile'] == '10g_eth':
+            device_type = 'fsp-150-xg108'
+        else:
+            device_type = None
+
+        if device_type:
+            nte = Device(
+                device_type = device_type
+                name = f'{site.slug.upper()}-NTE-1',
+                site=site,
+                status=DeviceStatusChoices.STATUS_PLANNED,
+                device_role='nte'
+            )
+            nte.save()
+            self.log_success(f"Created new router: {router}")
