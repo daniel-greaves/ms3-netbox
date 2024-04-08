@@ -30,12 +30,3 @@ class NewBranchScript(Script):
         description = "Name of the old location"
     )
     site_temp = StringVar()
-    service_profile = ChoiceVar(
-        choices = (
-            ('1g_eth', '1G Ethernet Layer 2'),
-            ('10g_eth', '10G Ethernet Layer 2'),
-            ('1g_fttp', '1G FTTP')
-        )
-        description = "Type of service being provided"
-    )
-    site_temp1 = StringVar()
