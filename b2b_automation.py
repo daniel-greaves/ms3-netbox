@@ -48,7 +48,7 @@ class NewBranchScript(Script):
             name=data['site_name'],
             slug=slugify(data['site_name']),
             status=SiteStatusChoices.STATUS_PLANNED,
-            physical_address = data['site_address']
+            #physical_address = data['site_address']
         )
         site.full_clean()
         site.save()
@@ -64,13 +64,4 @@ class NewBranchScript(Script):
 
         nte_role = DeviceRole.objects.get(name='NTE')
         
-        if device_model:
-            nte = Device(
-                device_type = device_model
-                name = f'{site.slug.upper()}-NTE-1',
-                site = site,
-                status = DeviceStatusChoices.STATUS_PLANNED,
-                device_role = nte_role
-            )
-            nte.save()
-            self.log_success(f"Created new NTE: {nte}")
+
