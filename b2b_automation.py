@@ -28,6 +28,6 @@ class NewBranchScript(Script):
         description="Access switch model",
         model=Tenant,
         query_params={
-            'group': 'wholesale-partner'
+            'group': 'wholesale-providers'
         }
     )
