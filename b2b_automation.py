@@ -10,13 +10,19 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('First group', ('site_name')),
-            ('Second group', ('location_name')),
+            ('First group', ('site_name', 'site_name2')),
+            ('Second group', ('location_name', 'location_name2')),
         )
     
     site_name = StringVar(
         description="Name of the new site"
     )
     location_name = StringVar(
+        description="Name of the new location"
+    )
+    site_name1 = StringVar(
+        description="Name of the new site"
+    )
+    location_name1 = StringVar(
         description="Name of the new location"
     )
