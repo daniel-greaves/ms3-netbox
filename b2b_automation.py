@@ -66,12 +66,5 @@ class NewBranchScript(Script):
         
         if device_model:
             device_type = DeviceType.objects.get(name = device_model)
-            nte = Device(
-                device_type = device_type
-                name = f'{site.slug.upper()}-NTE-1',
-                site = site,
-                status = DeviceStatusChoices.STATUS_PLANNED,
-                device_role = nte_role
-            )
-            nte.save()
-            self.log_success(f"Created new NTE: {nte}")
+            
+            self.log_success(f"Created new NTE: {device_type}")
