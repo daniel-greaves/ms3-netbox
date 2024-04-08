@@ -69,4 +69,4 @@ class NewBranchScript(Script):
                 device_role='nte'
             )
             nte.save()
-            self.log_success(f"Created new router: {router}")
+            self.log_success(f"Created new NTE: {nte}")
