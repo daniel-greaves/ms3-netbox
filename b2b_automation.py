@@ -44,7 +44,7 @@ class NewBusinessService(Script):
     )
     
     site_address = TextVar(
-        description = "Name of the old location"
+        description = "Full address, including postcode of where the connection is being delviered"
     )
     
     CHOICES = (
