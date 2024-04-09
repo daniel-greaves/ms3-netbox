@@ -11,10 +11,17 @@ class NewBranchScript(Script):
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('Customer information', ('wholesale_provider', 'service_profile')),
+            ('Customer information', ('wholesale_provider', 'order_reference')),
             ('Site information', ('site_name', 'site_address')),
-            #('Service Information', ('service_profile', 'site_temp1'))
+            ('Service Information', ('service_reference', 'service_profile'))
         )
+    order_reference = StringVar(
+        description = "Reference number of the order"
+    )
+
+    service_reference = StringVar(
+        description = "Reference number of the service"
+    )
     
     wholesale_provider = ObjectVar(
         description = "The name of the reseller ordering this service",
