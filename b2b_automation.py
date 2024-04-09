@@ -58,10 +58,7 @@ class NewBusinessService(Script):
 
     olt_area = ObjectVar(
         model = Device,
-        description = "The OLT which the connection will be fed from",
-        query_params = {
-            'role': 'olt'
-        }
+        description = "The OLT which the connection will be fed from"
     )
 
     def run(self, data, commit):
