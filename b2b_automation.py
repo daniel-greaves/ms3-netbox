@@ -5,14 +5,14 @@ from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Manufacturer, Site
 from tenancy.models import Tenant
 
-class NewBranchScript(Script):
+class NewBusinessService(Script):
 
     class Meta:
         name = "New B2B Order"
         description = "Provision a new business connection"
         fieldsets = (
-            ('Customer information', ('wholesale_provider', 'order_reference')),
-            ('Site information', ('site_name', 'site_address')),
+            ('Order Information', ('wholesale_provider', 'order_reference')),
+            ('Connection Information', ('site_name', 'site_address', 'connection_reference', 'olt')),
             ('Service Information', ('service_reference', 'service_profile'))
         )
     order_reference = StringVar(
@@ -20,6 +20,11 @@ class NewBranchScript(Script):
         regex = "^ORD\d{7}$"
     )
 
+    connection_reference = StringVar(
+        description = "Reference number of the service",
+        regex = "^FTTP\d{6}$"
+    )
+    
     service_reference = StringVar(
         description = "Reference number of the service",
         regex = "^SERA\d{6}$"
@@ -48,6 +53,14 @@ class NewBranchScript(Script):
     )
     service_profile = ChoiceVar(
         choices=CHOICES
+    )
+
+    olt = ObjectVar(
+        model = Device,
+        description = "The OLT which the connection will be fed from",
+        query_params = {
+            'device_role': 'olt'
+        }
     )
 
     def run(self, data, commit):
