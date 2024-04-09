@@ -103,5 +103,5 @@ class NewBusinessService(Script):
 
         # Assign Management IP Address
         prefix = Prefix.objects.get(prefix='192.168.243.0/24')
-        #ipv4, created = IPAddress.objects.get_or_create(prefix=10,defaults={'status':'active'})
-        self.log_info(f"Using Prefix: {prefix}")
+        ipv4, created = IPAddress.objects.get_or_create(prefix=prefix,defaults={'status':'active'})
+        self.log_info(f"Using IP: {ipv4}")
