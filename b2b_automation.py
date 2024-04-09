@@ -16,7 +16,8 @@ class NewBranchScript(Script):
             ('Service Information', ('service_reference', 'service_profile'))
         )
     order_reference = StringVar(
-        description = "Reference number of the order"
+        description = "Reference number of the order",
+        regex = "^ORD\d{7}$"
     )
 
     service_reference = StringVar(
