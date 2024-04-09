@@ -20,7 +20,7 @@ class NewBranchScript(Script):
     )
 
     service_reference = StringVar(
-        description = "Reference number of the service"
+        description = "Reference number of the service",
         regex = "/^SERA\d{6}$"
     )
     
