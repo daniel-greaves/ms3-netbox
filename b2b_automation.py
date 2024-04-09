@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Manufacturer, Site
 from tenancy.models import Tenant
-from ipam.models import IPAddress
+from ipam.models import IPAddress, Prefix
 
 class NewBusinessService(Script):
 
@@ -102,5 +102,6 @@ class NewBusinessService(Script):
             self.log_success(f"Created new NTE: {nte}")
 
         # Assign Management IP Address
-        ipv4, created = IPAddress.objects.get_or_create(prefix=10,defaults={'status':'active'})
-        self.log_success(f"Created new NTE: {ipv4}")
+        prefix = Prefix.objects.get(prefix='192.168.243.0/24')
+        #ipv4, created = IPAddress.objects.get_or_create(prefix=10,defaults={'status':'active'})
+        self.log_info(f"Using Prefix: {prefix}")
