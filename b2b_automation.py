@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Manufacturer, Site
 from tenancy.models import Tenant
+from ipam.models import IPAddress
 
 class NewBusinessService(Script):
 
@@ -64,7 +65,7 @@ class NewBusinessService(Script):
             'role': 'olt'
         }
     )
-
+    
     def run(self, data, commit):
         # Create the new site
         site = Site(
@@ -99,3 +100,7 @@ class NewBusinessService(Script):
             nte.full_clean()
             nte.save()
             self.log_success(f"Created new NTE: {nte}")
+
+        # Assign Management IP Address
+        ipv4, created = IPAddress.objects.get_or_create(address='10.250.1.199/24',defaults={'status':'active'})
+        self.log_success(f"Created new NTE: {ipv4}")
