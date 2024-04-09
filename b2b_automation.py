@@ -102,5 +102,5 @@ class NewBusinessService(Script):
             self.log_success(f"Created new NTE: {nte}")
 
         # Assign Management IP Address
-        ipv4, created = IPAddress.objects.get_or_create(address='10.250.1.199/24',defaults={'status':'active'})
+        ipv4, created = IPAddress.objects.get_or_create(prefix=10,defaults={'status':'active'})
         self.log_success(f"Created new NTE: {ipv4}")
