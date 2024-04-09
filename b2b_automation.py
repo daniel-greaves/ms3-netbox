@@ -12,9 +12,10 @@ class NewBusinessService(Script):
         description = "Provision a new business connection"
         fieldsets = (
             ('Order Information', ('wholesale_provider', 'order_reference')),
-            ('Connection Information', ('site_name', 'site_address', 'connection_reference', 'olt')),
+            ('Connection Information', ('site_name', 'site_address', 'connection_reference', 'olt_area')),
             ('Service Information', ('service_reference', 'service_profile'))
         )
+
     order_reference = StringVar(
         description = "Reference number of the order",
         regex = "^ORD\d{7}$"
@@ -55,11 +56,11 @@ class NewBusinessService(Script):
         choices=CHOICES
     )
 
-    olt = ObjectVar(
+    olt_area = ObjectVar(
         model = Device,
         description = "The OLT which the connection will be fed from",
         query_params = {
-            'device_role': 'olt'
+            'role': 'olt'
         }
     )
 
