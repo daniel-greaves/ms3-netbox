@@ -36,7 +36,7 @@ class NewOSPMaintenance(Script):
         description = "The name of the reseller ordering this service",
         model = Device,
         query_params = {
-            'role': 'fat'
+            'role': ['fat','fdt']
         }
     )
     
