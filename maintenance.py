@@ -5,7 +5,7 @@ from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
 
 
-class NewBranchScript(Script):
+class NewOSPMaintenance(Script):
 
     class Meta:
         name = "Maintenance Request"
