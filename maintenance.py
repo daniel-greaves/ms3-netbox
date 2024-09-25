@@ -34,9 +34,9 @@ class NewOSPMaintenance(Script):
     
     wholesale_provider = ObjectVar(
         description = "The name of the reseller ordering this service",
-        model = Tenant,
+        model = Device,
         query_params = {
-            'group': 'wholesale-providers'
+            'devicetype': 'fat'
         }
     )
     
