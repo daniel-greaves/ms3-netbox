@@ -2,123 +2,106 @@ from extras.scripts import *
 from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site
-
+from dcim.models import Device, DeviceRole, DeviceType, Manufacturer, Site
+from tenancy.models import Tenant
+from ipam.models import IPAddress, Prefix
 
 class NewOSPMaintenance(Script):
 
     class Meta:
-        name = "Maintenance Request"
-        description = "Request a new maintenance request to work on the Outside Plant"
+        name = "New Maintenance Request"
+        description = "Request a new maintenance window to work on the outside plant"
+        fieldsets = (
+            ('Order Information', ('wholesale_provider', 'order_reference')),
+            ('Connection Information', ('site_name', 'site_address', 'connection_reference', 'olt_area')),
+            ('Service Information', ('service_reference', 'service_profile'))
+        )
 
-    site_name = StringVar(
-        description="Name of the new site"
+    order_reference = StringVar(
+        description = "Reference number of the order",
+        regex = "^ORD\d{7}$"
     )
-    switch_count = IntegerVar(
-        description="Number of access switches to create"
+
+    connection_reference = StringVar(
+        description = "Reference number of the service",
+        regex = "^FTTP\d{6}$"
     )
-    switch_model = ObjectVar(
-        description="FDT/FAT being accesed",
-        model=Device
+    
+    service_reference = StringVar(
+        description = "Reference number of the service",
+        regex = "^SERA\d{6}$"
+    )
+    
+    wholesale_provider = ObjectVar(
+        description = "The name of the reseller ordering this service",
+        model = Tenant,
         query_params = {
-            'DeviceRole': ['fat','fdt']
+            'group': 'wholesale-providers'
         }
     )
-    router_count = IntegerVar(
-        description="Number of routers to create"
+    
+    site_name = StringVar(
+        description = "Name of the site or business"
     )
-    router_model = ObjectVar(
-        description="Router model",
-        model=DeviceType
+    
+    site_address = TextVar(
+        description = "Full address, including postcode of where the connection is being delviered"
     )
-    ap_count = IntegerVar(
-        description="Number of APs to create"
+    
+    CHOICES = (
+        ('1g_eth', '1G Ethernet Layer 2'),
+        ('10g_eth', '10G Ethernet Layer 2'),
+        ('1g_fttp', '1G FTTP'),
     )
-    ap_model = ObjectVar(
-        description="AP model",
-        model=DeviceType
-    )
-    server_count = IntegerVar(
-        description="Number of servers to create"
-    )
-    server_model = ObjectVar(
-        description="Server model",
-        model=DeviceType
+    service_profile = ChoiceVar(
+        choices=CHOICES
     )
 
+    olt_area = ObjectVar(
+        label = "OLT",
+        model = Device,
+        description = "The OLT which the connection will be fed from",
+        query_params = {
+            'role': 'olt'
+        }
+    )
+    
     def run(self, data, commit):
-
         # Create the new site
         site = Site(
             name=data['site_name'],
             slug=slugify(data['site_name']),
-            status=SiteStatusChoices.STATUS_PLANNED
+            status=SiteStatusChoices.STATUS_PLANNED,
+            physical_address = data['site_address']
         )
+        site.full_clean()
         site.save()
         self.log_success(f"Created new site: {site}")
 
-        # Create access switches
-        switch_role = DeviceRole.objects.get(name='Access Switch')
-        for i in range(1, data['switch_count'] + 1):
-            switch = Device(
-                device_type=data['switch_model'],
-                name=f'{site.slug.upper()}-SW-{i}',
-                site=site,
-                status=DeviceStatusChoices.STATUS_PLANNED,
-                device_role=switch_role
-            )
-            switch.save()
-            self.log_success(f"Created new switch: {switch}")
+        # Create the NTE
+        if data['service_profile'] == '1g_eth':
+            device_model = 'FSP 150-GE104(E)'
+        elif data['service_profile'] == '10g_eth':
+            device_model = 'FSP 150-XG108'
+        else:
+            device_model = None
 
-        # Create routers
-        router_role = DeviceRole.objects.get(name='WAN Router')
-        for i in range(1, data['router_count'] + 1):
-            router = Device(
-                device_type=data['router_model'],
-                name=f'{site.slug.upper()}-RTR-{i}',
-                site=site,
-                status=DeviceStatusChoices.STATUS_PLANNED,
-                device_role=router_role
-            )
-            router.save()
-            self.log_success(f"Created new router: {router}")
-
-        # Create APs
-        ap_role = DeviceRole.objects.get(name='Wireless AP')
-        for i in range(1, data['ap_count'] + 1):
-            ap = Device(
-                device_type=data['ap_model'],
-                name=f'{site.slug.upper()}-AP-{i}',
-                site=site,
-                status=DeviceStatusChoices.STATUS_PLANNED,
-                device_role=ap_role
-            )
-            ap.save()
-            self.log_success(f"Created new AP: {router}")
+        nte_role = DeviceRole.objects.get(slug='nte')
         
-        # Create Servers
-        server_role = DeviceRole.objects.get(name='vSphere')
-        for i in range(1, data['server_count'] + 1):
-            server = Device(
-                device_type=data['server_model'],
-                name=f'{site.slug.upper()}-VSP-{i}',
-                site=site,
-                status=DeviceStatusChoices.STATUS_PLANNED,
-                device_role=server_role
+        if device_model:
+            device_type = DeviceType.objects.get(model = device_model)
+            nte = Device(
+                device_type = device_type,
+                name = f'{site.slug.upper()}-NTE-1',
+                site = site,
+                status = DeviceStatusChoices.STATUS_PLANNED,
+                device_role = nte_role
             )
-            server.save()
-            self.log_success(f"Created new server: {router}")
+            nte.full_clean()
+            nte.save()
+            self.log_success(f"Created new NTE: {nte}")
 
-        # Generate a CSV table of new devices
-        output = [
-            'name,make,model'
-        ]
-        for device in Device.objects.filter(site=site):
-            attrs = [
-                device.name,
-                device.device_type.manufacturer.name,
-                device.device_type.model
-            ]
-            output.append(','.join(attrs))
-
-        return '\n'.join(output)
+        # Assign Management IP Address
+        prefix = Prefix.objects.get(prefix='192.168.243.0/24')
+        ipv4 = IPAddress.get_next_available_ip()
+        self.log_info(f"Using IP: {ipv4}")
