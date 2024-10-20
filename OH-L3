@@ -1,0 +1,1535 @@
+## Last commit: 2024-10-17 12:54:19 GMT by AUTOMATION
+version 20.4R2.7;
+system {
+    host-name mx204-OH-L3;
+    root-authentication {
+        encrypted-password "$6$0CG7jsKB$6T3cE9XM5.RUn9eCk3O75W/rRGMHY5Zb5lpFpeqZGswnIx6AioUKFNQJlwATie8H4uC7vFCOcHEg0yNmkBMEa0"; ## SECRET-DATA
+    }
+    configuration-database {
+        max-db-size 314572800;
+    }
+    login {
+        idle-timeout 30;
+        user AUTOMATION {
+            uid 2006;
+            class super-user;
+            authentication {
+                encrypted-password "$6$cRIWQLR7$rt4E5.OLlN2t1yzSji6D8P2adcznfem.fsXMG4GoXL/FvvHDlURmskjauEkI8WRDOU09DNOVSsU1lA8aPSybv."; ## SECRET-DATA
+            }
+        }
+        user adeel {
+            full-name "Adeel Akhtar";
+            uid 2003;
+            class super-user;
+            authentication {
+                encrypted-password "$6$McH7aBVh$ZLWFv531asXvg.KakrM/IrBxooa5mxdUgzEM9W3Ywjmnmd.SF5BYJUwdSSvxpMmTdKhtvLPDjRbtO7Uq9WrTc1"; ## SECRET-DATA
+            }
+        }
+        user adrian {
+            full-name "Adrian Groza";
+            uid 2022;
+            class super-user;
+            authentication {
+                encrypted-password "$6$uyY3wMo9$aTdaIKK5dosIa3QM2ZQWot6UYsvdSEr2JspAWJ73RjUnTIfgWAaW5VXUr2ttTYlSI3pbk1qnqqqHLDnrvfNI00"; ## SECRET-DATA
+            }
+        }
+        user ansible {
+            uid 2001;
+            class super-user;
+            authentication {
+                encrypted-password "$6$JEx33Okq$3nU2QDRU5NmtghlBQSp54ly9Xcm7RKtVDq3hQFyBzjp2W8Lw78cjcP//mxnpsq1FOIbAiNlH1Vd7.5oZXPMA20"; ## SECRET-DATA
+            }
+        }
+        user chris {
+            full-name "Chris Byrd";
+            uid 2002;
+            class super-user;
+            authentication {
+                encrypted-password "$6$8Gj6szQU$naDX1tx3KFsjF2GAIvWDZAvPFVklpuspevKQ4BxFGgF3b05xH9SHeLjIGFVb/AJh9d2GzoFrJnjb/z7Zbfd9t0"; ## SECRET-DATA
+            }
+        }
+        user daniel {
+            full-name "Daniel Greaves";
+            uid 2008;
+            class super-user;
+            authentication {
+                encrypted-password "$6$L0lTuvL.$DBxnrEPogLJd8LvePjT9xnxL4wOiG.wBFArFLP6Jpp1I/ibJYLetprjm4ifAcC5scsCw1WRknfQfmC6uxdkWY1"; ## SECRET-DATA
+            }
+        }
+        user enable {
+            full-name enable;
+            uid 2007;
+            class super-user;
+            authentication {
+                encrypted-password "$6$3/VA8KN8$5USkdkof81CTWUSDezSdOyLAYrXXsp46sq07EMzB1zZFgiZ59fhpyWpgjgQGFPrFgs1wiFW6gqkDIhkqjv30r."; ## SECRET-DATA
+            }
+        }
+        user enms {
+            uid 2005;
+            class super-user;
+            authentication {
+                encrypted-password "$6$VM9s.PPI$EXEk2WHg/nWIa6z/XEbiTImNQLQIsZac9jkz0F6cAIRagZZpkSLchcrh9wNqk9sfSZkYzG8MH0cozcO7Rvvvc/"; ## SECRET-DATA
+            }
+        }
+        user matt {
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$6$bdYLIN3w$nWeJjfZTTZmkXKJWl3gjlxrMQgQWpOTC7dl/nEMI3KngAcn0w3OkbIKoQ4bMrwNIAW5hPi2/G0emToVMaiqqh1"; ## SECRET-DATA
+                ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCzyYW/SmFnOX0v2776asPGKC9QZwCFLU4BrpRKvCQxpWHlSOVFjWCV1kbUzRpeC2ok7EAhoVM/UUKXLflC8TFz7zpsBtMPujbbG9gGeqFOyu+wEV5XPe702j5ofzm3TQBThPQh0ljE4ttMPntQRI+XQpPEFxiepSuR3LzrmVSEP2rww4WrKILFi9uJavnGtEQSlD1KAIVIadIDwsRVwVmxZtcGQogG6XiI3+IuuC4f/pfeW6aYlqSbuScynbGpQu7KEsXgemKVmJfTGr6dzGqM6+0JX7Jr5gvuHZvyjLro5459QK3TR3qiBLX2AnXr3RuQkBCPNB5U8HKwS2lGuUnRWAbeG9LZT5zDeiA26bhvh7FrFCEhf9pJR35VISSoAAMZ4r4NuAbpDemaA+Ba3US3YOz+hLjnhUNX3Fi3l5Fde6kOPezvJ6mVXozKs+Mdt47Oa29C6gRE7b2G9mIGupMqfLstn0xQqsB4fVLq+Qccgal0F2QcDKk5/oHWzZYP9T6Ck51qYilyaFtiYQTI+LlQ9JicOhVGV7hPVZzQ1ctFFHkzKd4vkFAzeR+is+ZQRMoEsusDCHlwlJ7I5faGamGp6igegZS+ecq9ujmdSuC0LhVFniiJSoZiBkVGzZmvg3GhDO/GesGUvakKQQMGam4JXY5IoslNlVO1KbymmCXUUQ=="; ## SECRET-DATA
+            }
+        }
+        user richard {
+            full-name "Richard Crooks";
+            uid 2009;
+            class super-user;
+            authentication {
+                encrypted-password "$6$6swqKf7r$ZTEUmKZaj6tvC29tG7VML7iLNmNZKxhyacW9rnwVIziPlk8bcMVMa2DKCyCqxFaIsSZCsPaTWunaGDbiVYa3g/"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        ssh {
+            root-login allow;
+            protocol-version v2;
+            sftp-server;
+        }
+        dhcp-local-server {
+            pool-match-order {
+                ip-address-first;
+            }
+            authentication {
+                username-include {
+                    user-prefix OH-L3-MX204-1;
+                    interface-name;
+                }
+            }
+            group DYNAMIC {
+                interface et-0/0/0.0;
+                interface et-0/0/1.0;
+                interface xe-0/1/1.0;
+            }
+            group HULL-FIBRE {
+                interface et-0/0/0.1;
+            }
+        }
+        subscriber-management {
+            enable;
+        }
+    }
+    time-zone GMT;
+    syslog {
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    auto-configuration {
+        traceoptions {
+            file autoconfig.log size 10m;
+            flag all;
+            flag interfaces;
+        }
+    }
+    processes {
+        general-authentication-service {
+            traceoptions {
+                file authd;
+            }
+        }
+        dhcp-service {
+            traceoptions {
+                file dhcp.log size 10m;
+                level all;
+                flag packet;
+                flag all;
+            }
+        }
+    }
+    ntp {
+        server 192.168.250.254;
+    }
+}
+chassis {
+    fpc 0 {
+        pic 0 {
+            port 0 {
+                speed 100g;
+            }
+            port 1 {
+                speed 100g;
+            }
+            port 2 {
+                speed 100g;
+            }
+        }
+        pic 1 {
+            port 0 {
+                speed 10g;
+            }
+            port 1 {
+                speed 10g;
+            }
+            port 2 {
+                speed 10g;
+            }
+            port 3 {
+                speed 10g;
+            }
+            port 4 {
+                speed 10g;
+            }
+            port 5 {
+                speed 10g;
+            }
+            port 6 {
+                speed 10g;
+            }
+            port 7 {
+                speed 10g;
+            }
+        }
+    }
+    alarm {
+        management-ethernet {
+            link-down ignore;
+        }
+    }
+    network-services enhanced-ip;
+}
+services {
+    rpm {
+        probe LATENCY_PING {
+            test PING_GOOGLE_LINX {
+                probe-type icmp-ping;
+                target address 8.8.8.8;
+                probe-count 10;
+                probe-interval 3;
+                routing-instance LINX;
+            }
+        }
+    }
+}
+access-profile local;
+interfaces {
+    et-0/0/0 {
+        description "Core: MX204-OH-L3 to MX204-OH-L2 ( New 100G)";
+        flexible-vlan-tagging;
+        auto-configure {
+            stacked-vlan-ranges {
+                dynamic-profile L3-STACKED-VLAN-DHCP-RANGE-4 {
+                    accept inet;
+                    ranges {
+                        8-8,6-2048;
+                        23-23,11-4094;
+                        15-15,1-2100;
+                    }
+                }
+                dynamic-profile L3-STACKED-VLAN-DHCP-RANGE-2 {
+                    accept inet;
+                    ranges {
+                        8-8,1-5;
+                        23-23,1-7;
+                        20-20,1-2048;
+                        16-16,1-4094;
+                    }
+                }
+                dynamic-profile L3-STACKED-VLAN-DHCP-RANGE-5 {
+                    accept inet;
+                    ranges {
+                        5-5,2103-2440;
+                        38-38,1-286;
+                        30-30,1-5;
+                        17-17,1-2;
+                        25-25,1-2;
+                        44-44,1-69;
+                        23-23,8-10;
+                        24-24,3-5;
+                    }
+                }
+                dynamic-profile L3-STACKED-VLAN-DHCP-RANGE-6 {
+                    accept inet;
+                    ranges {
+                        5-5,17-2102;
+                        24-24,1-2;
+                    }
+                }
+                dynamic-profile L3-STACKED-VLAN-DHCP-RANGE-7 {
+                    accept inet;
+                    ranges {
+                        33-33,1-2048;
+                        5-5,2441-4094;
+                        38-38,287-2048;
+                        15-15,2101-4094;
+                        29-29,1-4094;
+                        6-6,1-4094;
+                        30-30,6-4094;
+                        17-17,3-4094;
+                        25-25,3-2048;
+                        44-44,70-4094;
+                        36-36,1-2048;
+                        24-24,6-4094;
+                        5-5,1-16;
+                    }
+                }
+            }
+            remove-when-no-subscribers;
+        }
+        mtu 16000;
+        encapsulation flexible-ethernet-services;
+        gigether-options {
+            ethernet-switch-profile {
+                tag-protocol-id [ 0x8100 0x88a8 ];
+            }
+        }
+        unit 41 {
+            description "NTT 100G";
+            vlan-tags outer 0x8100.4090;
+            family inet {
+                address 157.238.231.55/31;
+            }
+        }
+        unit 4089 {
+            description "LINX(100G NEW)";
+            vlan-tags outer 0x8100.4089;
+            family inet {
+                address 195.66.231.63/21;
+            }
+        }
+        unit 4091 {
+            description Cogent_Transit_London;
+            vlan-tags outer 0x8100.4091;
+            family inet {
+                address 149.6.3.141/31;
+            }
+        }
+    }
+    et-0/0/1 {
+        description SPARE;
+        disable;
+    }
+    et-0/0/2 {
+        description SPARE;
+        disable;
+    }
+    xe-0/0/2 {
+        description SPARE;
+    }
+    et-0/0/3 {
+        description DISABLED;
+    }
+    xe-0/0/3 {
+        description SPARE;
+    }
+    xe-0/0/4 {
+        description SPARE;
+    }
+    xe-0/0/5 {
+        description SPARE;
+    }
+    xe-0/0/6 {
+        description SPARE;
+    }
+    xe-0/0/7 {
+        description MANAGEMENT;
+    }
+    xe-0/1/0 {
+        description "10Gbps old to new l3";
+        vlan-tagging;
+        unit 100 {
+            vlan-id 100;
+            family inet {
+                address 154.62.128.118/30;
+            }
+        }
+    }
+    xe-0/1/1 {
+        description SPARE;
+        disable;
+        flexible-vlan-tagging;
+        gigether-options {
+            speed 1g;
+        }
+    }
+    xe-0/1/2 {
+        description "Core: MX204-OH-L3 xe-0/1/2 - MX204-OH-MPLS xe-0/1/2";
+        hierarchical-scheduler;
+        flexible-vlan-tagging;
+        auto-configure {
+            stacked-vlan-ranges;
+            remove-when-no-subscribers;
+        }
+        mtu 9208;
+        encapsulation flexible-ethernet-services;
+        gigether-options {
+            ethernet-switch-profile {
+                tag-protocol-id 0x8100;
+            }
+        }
+        unit 0 {
+            description "Core: MX204-OH-L3 to MX204-LON-L2 OSPF";
+            vlan-id 4079;
+            family inet {
+                address 10.100.14.2/30;
+            }
+        }
+        unit 2 {
+            description "Core: Owen House [10g] {OLT-HUL103}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.2;
+        }
+        unit 3 {
+            description "Core: Owen House [10g] {OLT-HUL117}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.3;
+        }
+        unit 4 {
+            description "Core: Management to New QFX5120";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4094 inner 0x8100.2;
+        }
+        unit 5 {
+            description "Core: Owen House [10g] {OLT-HUL105}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.1;
+        }
+        unit 6 {
+            description "Core: Owen House [10g] (OLT-HUL104)";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.4;
+        }
+        unit 7 {
+            description "Core: Owen House [100g] (L2-QFX5120-OH)";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.5;
+        }
+        unit 8 {
+            description "Core: Owen House [100g] {L2-QFX5120-OH-OLT-MANAGEMENT}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.6;
+        }
+        unit 9 {
+            description "Core: Owen House [100g] {L2-QFX5120-OH-ADVA-MANAGEMENT}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4080 inner 0x8100.4;
+        }
+        unit 10 {
+            description "TEST 1 G ADVA";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.92 inner 0x8100.3;
+        }
+        unit 11 {
+            description "{L2-QFX5120-OH-ADVA-MANAGEMENT}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4080;
+        }
+        unit 12 {
+            description "HULL105 {L2-QFX5120-OH-ADVA-MANAGEMENT}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4081 inner 0x8100.2;
+        }
+        unit 13 {
+            description "HULL105 {L2-QFX5120-OH-ADVA-MANAGEMENT}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4081 inner 0x8100.3;
+        }
+        unit 15 {
+            description "Core: Owen House [100g] {ADVA MANAGEMENT - HULL104}";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4080 inner 0x8100.5;
+        }
+        unit 16 {
+            description BUSNIESS_SERVICE_TEST_1;
+            vlan-tags outer 0x8100.2023 inner 0x8100.3;
+            family inet {
+                address 154.61.48.133/30;
+            }
+        }
+        unit 17 {
+            description "Cust: mayfairexcel1";
+            vlan-tags outer 0x8100.2023 inner 0x8100.4;
+            family inet {
+                address 154.61.48.129/30;
+            }
+        }
+        unit 18 {
+            description MANAGMENT-IMEX;
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.10;
+        }
+        unit 19 {
+            description "Cust: MS3AIT01NorwichHouse";
+            vlan-tags outer 0x8100.2023 inner 0x8100.6;
+            family inet {
+                address 154.62.128.197/30;
+            }
+        }
+        unit 20 {
+            description "Cust: MS3PT01StMarysCollege";
+            vlan-tags outer 0x8100.2023 inner 0x8100.5;
+            family inet {
+                address 154.62.128.193/30;
+            }
+        }
+        unit 4080 {
+            description "7750 VPLS to ADVA Management (4080)";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4080 inner 0x8100.4080;
+        }
+        unit 4093 {
+            description "7750 VPLS to OLT Management 4093";
+            encapsulation vlan-bridge;
+            vlan-tags outer 0x8100.4093 inner 0x8100.4093;
+        }
+    }
+    xe-0/1/3 {
+        description SPARE;
+        disable;
+    }
+    xe-0/1/4 {
+        description SPARE;
+        disable;
+    }
+    xe-0/1/5 {
+        description SPARE;
+        unit 0 {
+            description speedtest10g;
+            family inet {
+                address 154.61.48.137/29;
+            }
+        }
+    }
+    xe-0/1/6 {
+        description "Cust: account_id ? [10g] (Evericom ip Transit)";
+        mtu 16000;
+        unit 0 {
+            family inet {
+                address 154.62.128.161/30;
+            }
+        }
+    }
+    xe-0/1/7 {
+        description MANAGEMENT;
+        flexible-vlan-tagging;
+        speed 1g;
+        gigether-options {
+            no-auto-negotiation;
+            speed 1g;
+        }
+        unit 4082 {
+            vlan-id 4082;
+            family inet {
+                address 10.250.0.2/30;
+            }
+        }
+    }
+    demux0 {
+        unit 0;
+    }
+    fxp0 {
+        unit 0 {
+            family inet {
+                address 192.168.250.4/24;
+            }
+            family inet6 {
+                dhcpv6-client {
+                    client-type stateful;
+                    client-ia-type ia-na;
+                    client-identifier duid-type duid-ll;
+                    vendor-id Juniper:mx204:FB128;
+                }
+            }
+        }
+    }
+    irb {
+        unit 1 {
+            family inet {
+                address 10.250.1.1/24;
+                address 10.250.173.1/24;
+                address 10.250.128.1/24;
+                address 10.250.129.1/24;
+                address 10.250.130.1/24;
+                address 10.250.131.1/24;
+                address 10.250.132.1/24;
+                address 10.250.133.1/24;
+                address 10.250.134.1/24;
+                address 10.250.135.1/24;
+                address 10.250.136.1/24;
+                address 10.250.137.1/24;
+                address 10.250.138.1/24;
+                address 10.250.139.1/24;
+                address 10.250.140.1/24;
+                address 10.250.141.1/24;
+                address 10.250.142.1/24;
+                address 10.250.143.1/24;
+                address 10.250.144.1/24;
+                address 10.250.145.1/24;
+                address 10.250.146.1/24;
+                address 10.250.147.1/24;
+                address 10.250.148.1/24;
+                address 10.250.149.1/24;
+                address 10.250.150.1/24;
+                address 10.250.151.1/24;
+                address 10.250.152.1/24;
+                address 10.250.153.1/24;
+                address 10.250.154.1/24;
+                address 10.250.155.1/24;
+                address 10.250.156.1/24;
+                address 10.250.157.1/24;
+                address 10.250.158.1/24;
+                address 10.250.159.1/24;
+                address 10.250.160.1/24;
+                address 10.250.161.1/24;
+                address 10.250.162.1/24;
+                address 10.250.163.1/24;
+                address 10.250.164.1/24;
+                address 10.250.165.1/24;
+                address 10.250.166.1/24;
+                address 10.250.167.1/24;
+                address 10.250.168.1/24;
+                address 10.250.169.1/24;
+                address 10.250.170.1/24;
+                address 10.250.171.1/24;
+                address 10.250.172.1/24;
+                address 10.250.174.1/24;
+                address 10.250.175.1/24;
+                address 10.250.176.1/24;
+                address 10.250.177.1/24;
+                address 10.250.178.1/24;
+                address 10.250.179.1/24;
+                address 10.250.180.1/24;
+                address 10.250.181.1/24;
+                address 10.250.182.1/24;
+                address 10.250.183.1/24;
+                address 10.250.184.1/24;
+                address 10.250.185.1/24;
+                address 10.250.186.1/24;
+                address 10.250.187.1/24;
+                address 10.250.188.1/24;
+                address 10.250.189.1/24;
+                address 10.250.190.1/24;
+                address 10.250.191.1/24;
+                address 10.250.192.1/24;
+                address 10.250.193.1/24;
+                address 10.250.194.1/24;
+                address 10.250.195.1/24;
+                address 10.250.196.1/24;
+                address 10.250.197.1/24;
+                address 10.250.198.1/24;
+                address 10.250.199.1/24;
+                address 10.250.200.1/24;
+                address 10.250.201.1/24;
+                address 10.250.202.1/24;
+                address 10.250.203.1/24;
+                address 10.250.204.1/24;
+                address 10.250.205.1/24;
+                address 10.250.206.1/24;
+                address 10.250.207.1/24;
+                address 10.250.208.1/24;
+                address 10.250.209.1/24;
+                address 10.250.210.1/24;
+                address 10.250.211.1/24;
+                address 10.250.212.1/24;
+                address 10.250.213.1/24;
+                address 10.250.214.1/24;
+                address 10.250.215.1/24;
+                address 10.250.216.1/24;
+                address 10.250.217.1/24;
+                address 10.250.218.1/24;
+                address 10.250.219.1/24;
+                address 10.250.220.1/24;
+                address 10.250.221.1/24;
+                address 10.250.222.1/24;
+                address 10.250.223.1/24;
+                address 10.250.224.1/24;
+                address 10.250.225.1/24;
+                address 10.250.226.1/24;
+                address 10.250.227.1/24;
+                address 10.250.228.1/24;
+                address 10.250.229.1/24;
+                address 10.250.230.1/24;
+                address 10.250.231.1/24;
+                address 10.250.232.1/24;
+                address 10.250.233.1/24;
+                address 10.250.234.1/24;
+                address 10.250.235.1/24;
+                address 10.250.236.1/24;
+                address 10.250.237.1/24;
+                address 10.250.238.1/24;
+                address 10.250.239.1/24;
+                address 10.250.240.1/24;
+                address 10.250.241.1/24;
+                address 10.250.242.1/24;
+                address 10.250.243.1/24;
+                address 10.250.244.1/24;
+                address 10.250.245.1/24;
+                address 10.250.246.1/24;
+                address 10.250.247.1/24;
+                address 10.250.248.1/24;
+                address 10.250.249.1/24;
+                address 10.250.250.1/24;
+                address 10.250.251.1/24;
+                address 10.250.252.1/24;
+                address 10.250.253.1/24;
+                address 10.250.254.1/24;
+                address 10.251.1.1/24;
+            }
+        }
+    }
+    lo0 {
+        unit 0 {
+            family inet {
+                address 10.100.100.100/32;
+                address 154.61.50.1/32;
+                address 154.61.49.1/32;
+                address 154.62.144.1/32;
+                address 185.2.192.1/32;
+                address 154.62.152.1/32;
+                address 149.88.112.1/32;
+            }
+        }
+    }
+}
+snmp {
+    description LibreNMS;
+    view LibreNMS {
+        oid .1;
+    }
+    client-list LibreNMS {
+        192.168.243.15/32;
+    }
+    client-list Zabbix {
+        192.168.243.101/32;
+    }
+    community LibreNMS {
+        view LibreNMS;
+        authorization read-only;
+        clients {
+            192.168.243.15/32;
+        }
+    }
+    community Public;
+    community public;
+    community "z2n7h0g3w1r8f8f2b!c";
+    trap-group LibreNMS {
+        version v1;
+        targets {
+            192.168.243.15;
+        }
+    }
+}
+forwarding-options {
+    ##
+    ## Warning: configuration block ignored: unsupported platform (JNP204 [MX204])
+    ##
+    packet-capture {
+        file filename DHCP-Capture;
+        maximum-capture-size 1500;
+    }
+}
+policy-options {
+    prefix-list bgp {
+        apply-path "protocols bgp group <*> neighbor <*>";
+    }
+    prefix-list COGENT_RANGE_1 {
+        154.60.90.0/23;
+        154.61.46.0/24;
+        154.62.144.0/20;
+        185.2.192.0/21;
+    }
+    prefix-list Managment_IP {
+        192.168.10.0/24;
+        192.168.243.0/24;
+    }
+    prefix-list LINX_PEERS_IP {
+        195.66.224.254/32;
+        195.66.225.230/32;
+        195.66.225.231/32;
+    }
+    prefix-list iBGP_MX960 {
+        154.62.128.117/32;
+    }
+    prefix-list NTT_PEERS_IP {
+        157.238.231.54/32;
+    }
+    prefix-list MS3_GROUP2 {
+        149.88.112.0/20;
+        154.61.48.0/24;
+        154.62.128.0/24;
+        154.62.144.0/21;
+        185.2.192.0/22;
+    }
+    prefix-list MS3_GROUP1 {
+        154.60.90.0/23;
+        154.61.46.0/24;
+        154.61.49.0/24;
+        154.61.50.0/24;
+        154.62.152.0/21;
+    }
+    prefix-list pFsense_IP {
+        192.168.250.0/24;
+    }
+    policy-statement BLOCK-ALL {
+        then reject;
+    }
+    policy-statement BLOCK_PRIVATE_ADDRESSES_ONLY {
+        term REJECT_PRIVATE_RANGE {
+            from {
+                route-filter 10.0.0.0/8 orlonger;
+                route-filter 172.16.0.0/12 orlonger;
+                route-filter 192.168.0.0/16 orlonger;
+            }
+            then reject;
+        }
+        term ACCEPT_ALL_OTHERS {
+            then accept;
+        }
+    }
+    policy-statement GLOBAL-->LINX {
+        term 1 {
+            from {
+                instance master;
+                route-filter 154.60.90.0/23 exact;
+            }
+            then accept;
+        }
+    }
+    policy-statement GLOBAL-->NTT {
+        term 1 {
+            from {
+                instance master;
+                route-filter 154.60.90.0/23 exact;
+            }
+            then accept;
+        }
+    }
+    policy-statement LINX-->GLOBAL {
+        from instance LINX;
+        then accept;
+    }
+    policy-statement LOCALPREF_COGENT {
+        term 1 {
+            from protocol bgp;
+            then {
+                local-preference 200;
+            }
+        }
+    }
+    policy-statement LOCALPREF_COGENT_2 {
+        term 1 {
+            from protocol bgp;
+            then {
+                local-preference 200;
+            }
+        }
+    }
+    policy-statement LOCALPREF_LINX {
+        term 1 {
+            from protocol bgp;
+            then {
+                local-preference 400;
+            }
+        }
+    }
+    policy-statement LOCALPREF_NTT {
+        term 1 {
+            from protocol bgp;
+            then {
+                local-preference 300;
+            }
+        }
+    }
+    policy-statement MS3_IP {
+        term EVRICOM1 {
+            from {
+                route-filter 154.60.90.0/23 exact;
+            }
+            then accept;
+        }
+        term EVRICOM2 {
+            from {
+                route-filter 154.61.46.0/24 exact;
+            }
+            then accept;
+        }
+        term RANGE1 {
+            from {
+                route-filter 154.61.48.0/24 exact;
+            }
+            then accept;
+        }
+        term RANGE2 {
+            from {
+                route-filter 154.61.49.0/24 exact;
+            }
+            then accept;
+        }
+        term RANGE3 {
+            from {
+                route-filter 154.61.50.0/24 exact;
+            }
+            then accept;
+        }
+        term RANGE4 {
+            from {
+                route-filter 154.62.128.0/24 exact;
+            }
+            then accept;
+        }
+        term RANGE6 {
+            from {
+                route-filter 185.2.192.0/22 exact;
+            }
+            then accept;
+        }
+        term RANGE7 {
+            from {
+                route-filter 154.62.144.0/21 exact;
+            }
+            then accept;
+        }
+        term RANGE8 {
+            from {
+                route-filter 154.62.152.0/21 exact;
+            }
+            then accept;
+        }
+        term RANGE9 {
+            from {
+                route-filter 149.88.112.0/20 exact;
+            }
+            then accept;
+        }
+        term BLOCK_OTHERS {
+            then reject;
+        }
+    }
+    policy-statement NTP_MANAGEMENT_IN_TO_OSPF {
+        term ACCEPT_STATIC_MANG {
+            from {
+                protocol direct;
+                prefix-list pFsense_IP;
+            }
+            then accept;
+        }
+    }
+    policy-statement NTT-->GLOBAL {
+        from instance NTT;
+        then accept;
+    }
+    policy-statement NTT_OUTBOUND_PREPEND {
+        term MS3_IPs {
+            from {
+                protocol [ static aggregate bgp ];
+                route-filter 154.61.50.0/24 exact;
+                route-filter 154.62.128.0/24 exact;
+                route-filter 185.2.192.0/22 exact;
+                route-filter 154.61.48.0/24 exact;
+                route-filter 154.61.49.0/24 exact;
+                route-filter 154.62.144.0/20 exact;
+                route-filter 154.60.90.0/23 exact;
+                route-filter 154.61.46.0/24 exact;
+            }
+            then {
+                as-path-prepend "199452 199452";
+                accept;
+            }
+        }
+        term BLOCK_OTHERS {
+            then reject;
+        }
+    }
+    policy-statement NTT_OUTBOUND_PREPEND_GROUPING {
+        term GROUP1 {
+            from {
+                prefix-list MS3_GROUP1;
+            }
+            then {
+                as-path-prepend "199452 199452";
+                accept;
+            }
+        }
+        term GROUP2 {
+            from {
+                prefix-list MS3_GROUP2;
+            }
+            then {
+                as-path-prepend 199452;
+                accept;
+            }
+        }
+        term BLOCK_OTHERS {
+            then reject;
+        }
+    }
+    policy-statement OUTBOUND_POLICY_MX960HESSLE {
+        term COGENT_RANGE_ALLOWED {
+            from {
+                prefix-list-filter COGENT_RANGE_1 exact;
+            }
+            then accept;
+        }
+    }
+    policy-statement STATIC_MANAGEMENT_IN_TO_OSPF {
+        term ACCEPT_STATIC_MANG {
+            from {
+                protocol static;
+                prefix-list Managment_IP;
+            }
+            then accept;
+        }
+    }
+}
+class-of-service {
+    traffic-control-profiles {
+        shape_100Mbps {
+            shaping-rate 100m;
+        }
+    }
+}
+firewall {
+    family inet {
+        filter protect-re {
+            term allow-ssh {
+                from {
+                    source-address {
+                        192.168.250.0/24;
+                        192.168.10.0/24;
+                        192.168.249.0/24;
+                    }
+                    destination-port 22;
+                }
+                then accept;
+            }
+            term LibreNMS-SNMP {
+                from {
+                    source-address {
+                        192.168.243.15/32;
+                        192.168.250.5/32;
+                    }
+                }
+                then accept;
+            }
+            term ALL-OSPF {
+                from {
+                    destination-address {
+                        224.0.0.5/32;
+                        224.0.0.6/32;
+                    }
+                }
+                then accept;
+            }
+            term allow-icmp {
+                from {
+                    destination-address {
+                        195.66.224.254/32;
+                    }
+                    protocol icmp;
+                }
+                then accept;
+            }
+            term bgp-LINX {
+                from {
+                    protocol tcp;
+                }
+                then accept;
+            }
+            term NTP_TEST {
+                from {
+                    destination-port ntp;
+                }
+                then accept;
+            }
+            term NTP_TEST_1 {
+                from {
+                    protocol udp;
+                    port ntp;
+                }
+                then accept;
+            }
+        }
+    }
+    filter protect-re-top {
+        term allow-ssh {
+            from {
+                source-address {
+                    192.168.250.0/24;
+                    192.168.10.0/24;
+                    192.168.249.0/24;
+                    192.168.243.0/24;
+                }
+                protocol tcp;
+                destination-port ssh;
+            }
+            then accept;
+        }
+        term allow-icmp {
+            from {
+                protocol icmp;
+            }
+            then accept;
+        }
+        term dhcp-client-accept {
+            from {
+                source-address {
+                    0.0.0.0/32;
+                }
+                destination-address {
+                    255.255.255.255/32;
+                }
+                protocol udp;
+                source-port 68;
+                destination-port 67;
+            }
+            then {
+                count dhcp-client-accept;
+                accept;
+            }
+        }
+        term dhcp-server-accept {
+            from {
+                protocol udp;
+                source-port [ 67 68 ];
+                destination-port [ 67 68 ];
+            }
+            then {
+                count dhcp-server-accept;
+                accept;
+            }
+        }
+        term LibreNMS-SNMP {
+            from {
+                source-address {
+                    192.168.243.15/32;
+                    192.168.250.5/32;
+                }
+            }
+            then accept;
+        }
+        term ALL-OSPF {
+            from {
+                destination-address {
+                    224.0.0.5/32;
+                    224.0.0.6/32;
+                }
+            }
+            then accept;
+        }
+        term bgp-term {
+            from {
+                protocol tcp;
+                destination-port bgp;
+            }
+            then accept;
+        }
+        term allow-bgp-from-ri {
+            from {
+                source-prefix-list {
+                    bgp;
+                }
+            }
+            then accept;
+        }
+        term LINX_PEERINGS {
+            from {
+                prefix-list {
+                    LINX_PEERS_IP;
+                }
+            }
+            then accept;
+        }
+        term iBGP {
+            from {
+                prefix-list {
+                    iBGP_MX960;
+                }
+            }
+            then accept;
+        }
+        term Management_systems {
+            from {
+                address {
+                    192.168.243.0/24;
+                }
+            }
+            then accept;
+        }
+        term NTT_PEERINGS {
+            from {
+                prefix-list {
+                    NTT_PEERS_IP;
+                }
+            }
+            then accept;
+        }
+        term NTP_TEST {
+            from {
+                destination-port ntp;
+            }
+            then accept;
+        }
+        term NTP_TEST_1 {
+            from {
+                protocol udp;
+                port ntp;
+            }
+            then accept;
+        }
+    }
+}
+access {
+    profile local {
+        authentication-order none;
+    }
+    address-assignment {
+        pool MS3-MAN-RANGE-2 {
+            family inet {
+                network 154.61.50.0/24;
+                range 1 {
+                    low 154.61.50.2;
+                    high 154.61.50.253;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        154.61.50.1;
+                    }
+                }
+            }
+        }
+        pool MS3-MAN-RANGE-3 {
+            family inet {
+                network 154.61.49.0/24;
+                range 1 {
+                    low 154.61.49.2;
+                    high 154.61.49.253;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        154.61.49.1;
+                    }
+                }
+            }
+        }
+        pool MS3-MAN-RANGE-4 {
+            family inet {
+                network 154.62.144.0/21;
+                range 1 {
+                    low 154.62.144.2;
+                    high 154.62.151.254;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        154.62.144.1;
+                    }
+                }
+            }
+        }
+        pool MS3-MAN-RANGE-5 {
+            family inet {
+                network 185.2.192.0/22;
+                range 1 {
+                    low 185.2.192.2;
+                    high 185.2.195.254;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        185.2.192.1;
+                    }
+                }
+            }
+        }
+        pool MS3-MAN-RANGE-6 {
+            family inet {
+                network 154.62.152.0/21;
+                range 1 {
+                    low 154.62.152.2;
+                    high 154.62.159.254;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        154.62.152.1;
+                    }
+                }
+            }
+        }
+        pool MS3-MAN-RANGE-7 {
+            family inet {
+                network 149.88.112.0/20;
+                range 1 {
+                    low 149.88.112.2;
+                    high 149.88.127.254;
+                }
+                dhcp-attributes {
+                    maximum-lease-time 3600;
+                    name-server {
+                        8.8.8.8;
+                        8.8.4.4;
+                    }
+                    router {
+                        149.88.112.1;
+                    }
+                }
+            }
+        }
+    }
+}
+routing-instances {
+    COGENT_2 {
+        protocols {
+            bgp {
+                group eBGP-peer-COGENT_2 {
+                    type external;
+                    import BLOCK_PRIVATE_ADDRESSES_ONLY;
+                    neighbor 149.6.3.140 {
+                        multihop;
+                        local-address 149.6.3.141;
+                        import LOCALPREF_COGENT_2;
+                        export MS3_IP;
+                        peer-as 174;
+                    }
+                }
+            }
+        }
+        instance-type virtual-router;
+        interface et-0/0/0.4091;
+    }
+    LINX {
+        routing-options {
+            instance-import GLOBAL-->LINX;
+        }
+        protocols {
+            bgp {
+                group eBGP-peer-LINX {
+                    type external;
+                    import BLOCK_PRIVATE_ADDRESSES_ONLY;
+                    authentication-key "$9$B9QIcrMWLNVwjHzn9p1IsYg4ZDn6CBIhlKY4JDq."; ## SECRET-DATA
+                    neighbor 195.66.224.254 {
+                        multihop;
+                        local-address 195.66.231.63;
+                        import BLOCK-ALL;
+                        authentication-algorithm md5;
+                        export MS3_IP;
+                        peer-as 5459;
+                    }
+                }
+                group eBGP-peer-LINX_SERVER {
+                    type external;
+                    neighbor 195.66.225.230 {
+                        multihop;
+                        local-address 195.66.231.63;
+                        import LOCALPREF_LINX;
+                        export MS3_IP;
+                        peer-as 8714;
+                    }
+                    neighbor 195.66.225.231 {
+                        multihop;
+                        local-address 195.66.231.63;
+                        import LOCALPREF_LINX;
+                        export MS3_IP;
+                        peer-as 8714;
+                    }
+                }
+            }
+        }
+        instance-type virtual-router;
+        interface et-0/0/0.4089;
+    }
+    NTT {
+        routing-options {
+            instance-import GLOBAL-->NTT;
+        }
+        protocols {
+            bgp {
+                group eBGP-peer-NTT {
+                    type external;
+                    local-address 157.238.231.55;
+                    import LOCALPREF_NTT;
+                    authentication-key "$9$dbb2oGDHPfTO1NdVwoa9CtORcreMX7dqm"; ## SECRET-DATA
+                    export NTT_OUTBOUND_PREPEND_GROUPING;
+                    neighbor 157.238.231.54 {
+                        peer-as 2914;
+                    }
+                }
+            }
+        }
+        instance-type virtual-router;
+        interface et-0/0/0.41;
+    }
+}
+routing-options {
+    static {
+        route 0.0.0.0/0 next-hop 154.62.128.117;
+        route 192.168.10.0/24 next-hop 10.250.0.1;
+        route 192.168.243.0/24 next-hop 10.250.0.1;
+        route 154.61.46.0/24 next-hop 154.62.128.162;
+        route 154.60.90.0/23 next-hop 154.62.128.162;
+    }
+    autonomous-system 199452;
+    instance-import [ NTT-->GLOBAL LINX-->GLOBAL ];
+}
+protocols {
+    router-advertisement {
+        interface fxp0.0;
+    }
+    bgp {
+        group Customer-internal {
+            type internal;
+            local-address 154.62.128.118;
+            export OUTBOUND_POLICY_MX960HESSLE;
+            neighbor 154.62.128.117;
+        }
+    }
+    ospf {
+        area 0.0.0.0 {
+            interface xe-0/1/2.0 {
+                interface-type p2p;
+            }
+        }
+        traceoptions {
+            file ospf.log;
+            flag hello;
+        }
+        export [ STATIC_MANAGEMENT_IN_TO_OSPF NTP_MANAGEMENT_IN_TO_OSPF ];
+    }
+}
+dynamic-profiles {
+    protect: L3-STACKED-VLAN-DHCP {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 154.62.128.193;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-2 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 154.61.50.1;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-3 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 154.61.49.1;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-4 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 154.62.144.1;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-5 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 185.2.192.1;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-6 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 154.62.152.1;
+                    }
+                }
+            }
+        }
+    }
+    L3-STACKED-VLAN-DHCP-RANGE-7 {
+        interfaces {
+            "$junos-interface-ifd-name" {
+                unit "$junos-interface-unit" {
+                    demux-source inet;
+                    vlan-tags outer "$junos-stacked-vlan-id" inner "$junos-vlan-id";
+                    family inet {
+                        unnumbered-address lo0.0 preferred-source-address 149.88.112.1;
+                    }
+                }
+            }
+        }
+    }
+}
+bridge-domains {
+    MANAGEMENT {
+        vlan-id none;
+        interface xe-0/1/2.2;
+        interface xe-0/1/2.3;
+        interface xe-0/1/2.4;
+        interface xe-0/1/2.5;
+        interface xe-0/1/2.6;
+        interface xe-0/1/2.7;
+        interface xe-0/1/2.8;
+        interface xe-0/1/2.9;
+        interface xe-0/1/2.12;
+        interface xe-0/1/2.13;
+        interface xe-0/1/2.15;
+        interface xe-0/1/2.18;
+        interface xe-0/1/2.4093;
+        interface xe-0/1/2.4080;
+        routing-interface irb.1;
+    }
+}
