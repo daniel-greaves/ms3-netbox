@@ -23,7 +23,7 @@ class SinglePowerPortReport(Script):
             power_ports = PowerPort.objects.filter(device=device)
             
             # Count how many power ports are connected
-            connected_power_ports = sum([1 for port in power_ports if port.connected_endpoint])
+            connected_power_ports = sum([1 for port in power_ports])
 
             # If there's exactly one connected power port, add the device to the list
             if connected_power_ports == 1:
