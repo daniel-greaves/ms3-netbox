@@ -1,30 +1,39 @@
 from dcim.models import Device, PowerPort, Site
-from extras.reports import Report, BooleanVar, StringVar
+from extras.scripts import Script, ObjectVar
 
-class SinglePowerPortReport(Report):
-    """Report to check for devices with only a single power port at a user-specified site"""
+class SinglePowerPortReport(Script):
+    class Meta:
+        name = "Single Connected Power Port Report"
+        description = "Report devices at a given site that only have a single connected power port"
 
-    # Description of the report
-    description = "Checks all devices at a specified site and flags any that have only a single power port."
-
-    # Add a user input variable for site_slug
-    site_slug = StringVar(
-        description="Slug of the site to check",
-        label="Site Slug"
+    site = ObjectVar(
+        model=Site,
+        description="Select the site to report on"
     )
 
-    def test_device_power_ports(self, site_slug):
-        # Validate that the site exists
-        try:
-            site = Site.objects.get(slug=site_slug)
-        except Site.DoesNotExist:
-            self.log_failure(None, f"Site with slug '{site_slug}' does not exist.")
-            return
+    def run(self, data, commit):
+        site = data["site"]
+        devices_with_single_power_port = []
 
-        # Query all devices at the specified site
+        # Get all devices at the selected site
         devices = Device.objects.filter(site=site)
 
-        # Iterate through each device
         for device in devices:
-            # Count the number of power ports
-            power_ports = PowerPort.objects
+            # Get all power ports for this device
+            power_ports = PowerPort.objects.filter(device=device)
+            
+            # Count how many power ports are connected
+            connected_power_ports = sum([1 for port in power_ports if port.connected_endpoint])
+
+            # If there's exactly one connected power port, add the device to the list
+            if connected_power_ports == 1:
+                devices_with_single_power_port.append(device)
+
+        # Output the result
+        if devices_with_single_power_port:
+            for device in devices_with_single_power_port:
+                self.log_info(f"Device: {device.name} ({device.device_type}) has only 1 connected power port.")
+        else:
+            self.log_info("No devices with a single connected power port found.")
+
+        return f"Found {len(devices_with_single_power_port)} devices with a single connected power port."
