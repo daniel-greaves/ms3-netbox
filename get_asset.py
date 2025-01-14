@@ -19,7 +19,7 @@ class RunCommand(Script):
             required=True
         )
 
-    def run(self, data, commit):
+def run(self, data, commit):
 
-        self.log_info(f"ONT: {data['ont']}")
-        return ("Done")
+    self.log_info(f"ONT: {data['ont']}")
+    return ("Done")
