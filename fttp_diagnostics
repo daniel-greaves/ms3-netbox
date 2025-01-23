@@ -1,0 +1,42 @@
+from django.utils.timezone import now
+from dcim.models import Device
+from extras.scripts import Script, StringVar
+from extras.models import JournalEntry
+
+class FTTPDiagnostics(Script):
+    class Meta:
+        name = "FTTP Diagnostics"
+        description = "Create a diagnostic journal entry for an FTTP device"
+        field_order = ['device_name']
+
+    device_name = StringVar(
+        description="Enter the FTTP device name"
+    )
+
+    def run(self, data, commit):
+        # Retrieve the device
+        try:
+            device = Device.objects.get(name=data['device_name'])
+        except Device.DoesNotExist:
+            self.log_failure(f"Device '{data['device_name']}' not found.")
+            return
+        
+        # Perform diagnostics (placeholder for real diagnostics)
+        diagnostic_results = f"Diagnostics run at {now().strftime('%Y-%m-%d %H:%M:%S')}: No issues detected."
+
+        # Create a journal entry for the device
+        journal_entry = JournalEntry(
+            assigned_object=device,
+            assigned_object_type=device.get_content_type(),
+            created=now(),
+            kind="info",
+            comments=diagnostic_results
+        )
+
+        if commit:
+            journal_entry.save()
+            self.log_success(f"Journal entry added to device {device.name}")
+        else:
+            self.log_info("Dry run: Journal entry not saved.")
+
+        return f"Diagnostic entry created for device: {device.name}"
