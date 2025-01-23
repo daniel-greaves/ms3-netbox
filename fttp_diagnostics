@@ -1,51 +1,44 @@
-from django.utils.timezone import now
-from dcim.models import Device, DeviceType
-from extras.scripts import Script, StringVar
+from extras.scripts import Script
+from dcim.models import Device
 from extras.models import JournalEntry
+from utilities.forms.fields import DynamicModelChoiceField
+from django.utils.timezone import now
 
-class FTTPDiagnostics(Script):
+class AddDeviceJournalEntry(Script):
     class Meta:
-        name = "FTTP Diagnostics"
-        description = "Create a diagnostic journal entry for an FTTP device based on model name"
-        field_order = ['device_model']
+        name = "Add Journal Entry to Device"
+        description = "Prompts the user to select a device and adds a journal entry."
+        field_order = ['device', 'entry']
 
-    device_model = StringVar(
-        description="Enter the FTTP device model name"
+    device = DynamicModelChoiceField(
+        queryset=Device.objects.all(),
+        label="Select Device",
+        required=True,
+    )
+
+    entry = Script.CharField(
+        max_length=500,
+        label="Journal Entry",
+        required=True,
     )
 
     def run(self, data, commit):
-        # Find devices matching the given model name
-        try:
-            device_type = DeviceType.objects.get(model__iexact=data['device_model'])
-            devices = Device.objects.filter(device_type=device_type)
+        device = data['device']
+        entry_text = data['entry']
 
-            if not devices.exists():
-                self.log_failure(f"No devices found for model '{data['device_model']}'.")
-                return
-            
-        except DeviceType.DoesNotExist:
-            self.log_failure(f"Device model '{data['device_model']}' not found.")
-            return
+        # Create the journal entry
+        journal_entry = JournalEntry(
+            assigned_object=device,
+            assigned_object_type=device.get_content_type(),
+            created=now(),
+            kind="info",
+            comments=entry_text
+        )
+        
+        if commit:
+            journal_entry.save()
+            self.log_success(f"Journal entry added to device {device.name}")
+        else:
+            self.log_info(f"Journal entry would be added to device {device.name} (dry run).")
 
-        self.log_info(f"Found {devices.count()} device(s) for model '{data['device_model']}'.")
-
-        for device in devices:
-            # Simulated diagnostics message
-            diagnostic_results = f"Diagnostics run at {now().strftime('%Y-%m-%d %H:%M:%S')}: No issues detected."
-
-            # Create a journal entry for each device
-            journal_entry = JournalEntry(
-                assigned_object=device,
-                assigned_object_type=device.get_content_type(),
-                created=now(),
-                kind="info",
-                comments=diagnostic_results
-            )
-
-            if commit:
-                journal_entry.save()
-                self.log_success(f"Journal entry added to device {device.name}")
-            else:
-                self.log_info(f"Dry run: Journal entry not saved for device {device.name}.")
-
-        return f"Diagnostic entries created for {devices.count()} devices of model: {data['device_model']}"
+        return f"Journal entry added successfully: {entry_text}"
