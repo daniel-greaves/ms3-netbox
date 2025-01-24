@@ -21,7 +21,7 @@ class NewBranchScript(Script):
 
         if commit:
             journal_entry = JournalEntry.objects.create(
-                assigned_object=device,
+                assigned_object=device.id,
                 assigned_object_type='dcim.device',
                 created=now(),
                 kind='info',
@@ -31,4 +31,4 @@ class NewBranchScript(Script):
         else:
             self.log_info(f"(Dry-run) Journal entry would be created for {device}")
 
-        return f"Journal entry created: {comments}"
+        return f"Journal entry created:"
