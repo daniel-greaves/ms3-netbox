@@ -18,16 +18,14 @@ class NewBranchScript(Script):
 
     def run(self, data, commit):
         device = data['device']
-        comments = data['comments']
-        kind = data['kind']
 
         if commit:
             journal_entry = JournalEntry.objects.create(
                 assigned_object=device,
-                assigned_object_type=device.get_content_type(),
+                assigned_object_type='dcim.device',
                 created=now(),
-                kind=kind,
-                comments=comments
+                kind='info',
+                comments='Pending...'
             )
             self.log_success(f"Journal entry successfully created for {device}")
         else:
