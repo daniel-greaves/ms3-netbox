@@ -17,20 +17,5 @@ class NewBranchScript(Script):
     )
 
     def run(self, data, commit):
-        device = data['device']
-        comments = data['comments']
-        kind = data['kind']
 
-        if commit:
-            journal_entry = JournalEntry.objects.create(
-                assigned_object=device,
-                assigned_object_type=device.get_content_type(),
-                created=now(),
-                kind=kind,
-                comments=comments
-            )
-            self.log_success(f"Journal entry successfully created for {device}")
-        else:
-            self.log_info(f"(Dry-run) Journal entry would be created for {device}")
-
-        return f"Journal entry created: {comments}"
+        return f"Journal entry created: {data}"
