@@ -5,6 +5,8 @@ from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
 from netbox_inventory.models import Asset
 from extras.models import JournalEntry
+from utilities.exceptions import AbortScript
+import json
 
 class NewBranchScript(Script):
 
