@@ -26,10 +26,6 @@ class NewBranchScript(Script):
     def run(self, data, commit):
         device = data['device']
 
-        entry = device.journal_entries.create()
-        entry.kind = "info"
-        entry.comments = "test journel entry"
-        entry.clean()
-        entry.save()
+
 
         return f"Journal entry created:"
