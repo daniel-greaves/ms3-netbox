@@ -3,7 +3,7 @@ from django.utils.text import slugify
 
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
-
+from netbox_inventory.models import Asset
 
 class NewBranchScript(Script):
 
@@ -14,6 +14,11 @@ class NewBranchScript(Script):
     device = ObjectVar(
         description="Connection Reference of ONT to check",
         model=Device
+    )
+
+    new_ont = ObjectVar(
+        description = "Serial Number of new ONT"
+        model=Asset
     )
 
     def run(self, data, commit):
