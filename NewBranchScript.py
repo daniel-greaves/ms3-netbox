@@ -17,7 +17,7 @@ class NewBranchScript(Script):
     )
 
     new_ont = ObjectVar(
-        description = "Serial Number of new ONT"
+        description = "Serial Number of new ONT",
         model=Asset
     )
 
