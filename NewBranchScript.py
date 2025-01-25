@@ -35,3 +35,15 @@ class NewBranchScript(Script):
         self.log_info("quicktest")
         
         return ("Done")
+
+class quicktest2(Script):
+        
+    class Meta:
+        name = "quicktest2"
+        description = "quicktest2"
+        
+    def run(self, data, commit):
+        self.log_info("quicktest2")
+        
+        return ("Done")
+    
