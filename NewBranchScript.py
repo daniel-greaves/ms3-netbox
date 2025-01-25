@@ -32,4 +32,6 @@ class NewBranchScript(Script):
         entry.clean()
         entry.save()
 
-        return f"Journal entry created:"
+        self.log_info("quicktest")
+        
+        return ("Done")
