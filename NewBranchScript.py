@@ -4,12 +4,13 @@ from django.utils.text import slugify
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
 from netbox_inventory.models import Asset
+from extras.models import JournalEntry
 
 class NewBranchScript(Script):
 
     class Meta:
-        name = "New Branch"
-        description = "Provision a new branch site"
+        name = "ONT Replacement"
+        description = "Replace an ONT  for a given FTTP Connection"
 
     device = ObjectVar(
         description="Connection Reference of ONT to check",
@@ -17,6 +18,7 @@ class NewBranchScript(Script):
     )
 
     new_ont = ObjectVar(
+        label = "New ONT"
         description = "Serial Number of new ONT",
         model=Asset
     )
@@ -24,12 +26,10 @@ class NewBranchScript(Script):
     def run(self, data, commit):
         device = data['device']
 
-        journal_entry = JournalEntry.objects.create(
-            assigned_object=device,
-            assigned_object_type='dcim.device',
-            created=now(),
-            kind='info',
-            comments='Pending...'
-        )
+        entry = device.journal_entries.create()
+        entry.kind = "info"
+        entry.comments = "test journel entry"
+        entry.clean()
+        entry.save()
 
         return f"Journal entry created:"
